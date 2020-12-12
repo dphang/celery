@@ -171,7 +171,7 @@ class Control:
         self.mailbox = self.Mailbox(
             app.conf.control_exchange,
             type='fanout',
-            accept=['json'],
+            accept=['json', 'pickle'],
             producer_pool=lazy(lambda: self.app.amqp.producer_pool),
             queue_ttl=app.conf.control_queue_ttl,
             reply_queue_ttl=app.conf.control_queue_ttl,
